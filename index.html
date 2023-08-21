@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+        <script src="./sketchy.js" defer></script>
+        <link href="./style.css" rel="stylesheet">
+        <title>etch-a-sketch</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="title">etch-a-sketch</h1>
+            <div class="main-section">
+                <div class="settings">
+                    <h2 class="settings-title">settings</h2>
+                    <div class="color-container">
+                        <span class="color-label">#000000</span>
+                        <input class="color-picker" type="color">
+                    </div>
+                    <button class="color-btn">color mode</button>
+                    <button class="rainbow-btn">rainbow mode</button>
+                    <button class="clear-btn">clear</button>
+                    <div class="size-container">
+                        <span class="size-label">16x16</span>
+                        <input class="size-slider" type="range" value="32" min="1" max="100" step="1">
+                    </div>
+                </div>
+                <div class="grid"></div>
+            </div>
+            <div class="wave">
+                <div class="footer">
+                    <p>copyright © <script>document.write(new Date().getFullYear())</script> tynou</p>
+                    <a href="https://github.com/tynou" target="_blank">
+                        <div class="github-icon"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
