@@ -162,12 +162,11 @@ input[type='range']::-webkit-slider-thumb {
 
 .wave {
     background-repeat: no-repeat;
-    background-position: bottom;
+    background-position: center;
     background-size: cover;
     width: 100%;
-    aspect-ratio: 900/600;
-    max-height: 150px;
-    background-image: url("./wave-haikei.svg");
+    aspect-ratio: 10/1;
+    background-image: url("./wave-haikei2.svg");
     display: flex;
     justify-content: center;
     align-items: flex-end;
