@@ -1,8 +1,7 @@
 const grid = document.querySelector(".grid");
 const colorPicker = document.querySelector(".color-picker");
-const colorBtn = document.querySelector(".color-btn");
-const rainbowBtn = document.querySelector(".rainbow-btn");
 const clearBtn = document.querySelector(".clear-btn");
+const modeBtns = document.querySelectorAll("#mode");
 const sizeSlider = document.querySelector(".size-slider");
 const colorLabel = document.querySelector(".color-label");
 const sizeLabel = document.querySelector(".size-label");
@@ -16,17 +15,17 @@ sizeSlider.value = cells;
 
 document.body.onmouseup = (e) => {
     down = false;
-}
+};
+
+modeBtns.forEach((btn) => {
+    btn.onmousedown = (e) => {
+        setMode(btn.className);
+    };
+});
 
 colorPicker.oninput = (e) => {
     color = e.target.value;
     setColor(e.target.value);
-};
-colorBtn.onmousedown = (e) => {
-    setMode("color");
-};
-rainbowBtn.onmousedown = (e) => {
-    setMode("rainbow");
 };
 clearBtn.onmousedown = (e) => {
     updateGrid();
@@ -54,16 +53,9 @@ const setColor = (newColor) => {
 }
 
 const setMode = (newMode) => {
-    switch (newMode) {
-        case "color":
-            colorBtn.classList.add("active");
-            rainbowBtn.classList.remove("active");
-            break;
-        case "rainbow":
-            rainbowBtn.classList.add("active");
-            colorBtn.classList.remove("active");
-            break;
-    }
+    modeBtns.forEach((btn) => {
+        if (btn.className === newMode) btn.classList.add("active"); else btn.classList.remove("active");
+    })
 
     mode = newMode;
 }
@@ -96,6 +88,10 @@ const updateGrid = () => {
 }
 
 const colorCell = (cell) => {
+    if (mode === "eraser") {
+        cell.removeAttribute("style");
+        return;
+    }
     cell.style["background-color"] = mode === "color" ? color : randomColor();
 }
 
